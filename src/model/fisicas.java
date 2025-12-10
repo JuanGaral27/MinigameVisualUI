@@ -1,36 +1,22 @@
-package src.game;
+package src.model;
 
 import java.awt.*;
 import java.util.Random;
 
 public class fisicas {
-    int x, y, w, h;
-    int vy; 
-    int scoreValue;
-    Color color;
+    public int x, y, w, h;
+    public int vy;
+    public int scoreValue;
+    public Color color;
 
     public fisicas(int x, int y, int w, int h, int vy, int scoreValue, Color color) {
         this.x = x; this.y = y; this.w = w; this.h = h;
-        this.vy = vy;
-        this.scoreValue = scoreValue;
-        this.color = color;
+        this.vy = vy; this.scoreValue = scoreValue; this.color = color;
     }
 
-    public void update() {
-        y += vy;
-    }
+    public void update() { y += vy; }
 
-    public void render(Graphics2D g) {
-        g.setColor(color);
-        g.fillOval(x, y, w, h);
-
-        g.setColor(new Color(255,255,255,120));
-        g.fillOval(x + w/4, y + h/6, w/4, h/4);
-    }
-
-    public Rectangle getBounds() {
-        return new Rectangle(x, y, w, h);
-    }
+    public Rectangle getBounds() { return new Rectangle(x, y, w, h); }
 
     public int getScoreValue() { return scoreValue; }
 
@@ -40,12 +26,7 @@ public class fisicas {
         int x = r.nextInt(Math.max(1, panelWidth - size - 16)) + 8;
         int speed = r.nextInt(3) + 2;
         int val = (speed >= 4) ? 2 : 1;
-        Color color = randomColor(r);
 
-        return new fisicas(x, -size, size, size, speed, val, color);
-    }
-
-    private static Color randomColor(Random r) {
         Color[] colors = {
             new Color(220, 20, 60),
             new Color(255, 165, 0),
@@ -54,7 +35,7 @@ public class fisicas {
             new Color(65,105,225),
             new Color(199,21,133)
         };
-        return colors[r.nextInt(colors.length)];
+
+        return new fisicas(x, -size, size, size, speed, val, colors[r.nextInt(colors.length)]);
     }
 }
-
