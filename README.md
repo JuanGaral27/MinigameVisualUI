@@ -1,9 +1,9 @@
-#MinigameVisualUI
+# MinigameVisualUI
 
 Pequeño minijuego desarrollado en Java utilizando arquitectura MVC (Model–View–Controller).
 El jugador controla una canasta para atrapar frutas que caen desde la parte superior de la pantalla, acumulando puntos y evitando perder vidas.
 
-##Características
+## Características
 
 Interfaz gráfica básica con Java Swing.
 
